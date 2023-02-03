@@ -1,0 +1,51 @@
+#include<iostream>
+using namespace std;
+int sort(int a[],int X)
+{
+	int i,j;
+	for(i=0;i<X-1;i++)
+	{
+		for(j=0;j<X-i-1;j++)
+		{
+			if(a[j]>a[j+1])
+			{
+				swap(a[j],a[j+1]);
+			}
+		}
+	}
+	return 0;
+	}    
+	printarray(int a[],int s)
+	{
+		int l;
+		for(l=0;l<s;l++)
+		{
+			cout<<a[l]<<" ";
+		}
+		return 0;
+	}
+	int main()
+	{
+		int a[]={2,8,9,7,5,6},N,M,n,k,X,i;
+	/*	cout<<"enter n:";
+		cin>>n;
+		cout<<"elements are:";
+		for(k=0;k<n;k++)
+		{
+			cin>>a[k];
+		}*/
+		X = sizeof(a)/sizeof(a[0]);
+		printf("given array is:");
+		printarray(a,X);
+		printf("\n");
+		sort(a,X);
+		printf("sorted array is:");
+		printarray(a,X);
+		cout<<"\n";
+		cout<<"enter M:";
+		cin>>M;
+		cout<<"enter N:"<<endl;
+		cin>>N;
+		cout<<M<<"th maximum of an array is"<<a[X-M]<<endl;
+		cout<<N<<"th minimum of an array is"<<a[N-1]<<endl;		
+	}
