@@ -1,0 +1,51 @@
+#include<stdio.h>
+int quick(int n[],int b,int c)
+{
+	int i,j,p,t;
+	if(b<c)
+	{
+		p = b;
+		i = b;
+		j = c;
+		while(i<j)
+		{
+			while(n[i]<=n[p]&&i<c)
+			i++;
+			while(n[j]>n[p])
+			j--;
+			if(i<j)
+			{
+				t = n[i];
+				n[i] = n[j];
+				n[j] = t;
+			}
+		}
+		t = n[p];
+		n[p] = n[j];
+		n[j] = t;
+		quick(n,b,j-1);
+		quick(n,j+1,c);
+	}
+}
+ void display(int n[],int s)
+{
+	int i;
+	for(i=0;i<s;i++)
+	printf("%d",n[i]);
+}
+int main()
+{
+	int i,a,n[21];
+		printf("enter no of elements:");
+	scanf("%d",&a);
+	printf("elements are:");
+	for(i=0;i<a;i++)
+	scanf("%d",&n[i]);
+	printf("before swapping");
+    display(n,a);
+    printf("\n");
+	quick(n,0,a-1);
+	printf("After sorting");
+	display(n,a);
+	
+}
