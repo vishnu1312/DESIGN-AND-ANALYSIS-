@@ -1,0 +1,54 @@
+#include<stdio.h>
+int main(){
+  int a[20][20], b[20][20], x[20][20], i, j,r,c;
+  int m1, m2, m3, m4 , m5, m6, m7;
+  printf("enter rows:");
+  scanf("%d",&r);
+  printf("enter columns:");
+  scanf("%d",&c);
+  printf("Enter the elements of first matrix: ");
+  for(i = 0;i < r; i++)
+      for(j = 0;j < r; j++)
+           scanf("%d", &a[i][j]);
+ 
+  printf("Enter the elements of second matrix: ");
+  for(i = 0; i < r; i++)
+      for(j = 0;j < c; j++)
+           scanf("%d", &b[i][j]);
+ 
+  printf("\nThe first matrix is\n");
+  for(i = 0; i < r; i++){
+      printf("\n");
+      for(j = 0; j < c; j++)
+           printf("%d\t", a[i][j]);
+  }
+ 
+  printf("\nThe second matrix is\n");
+  for(i = 0;i < r; i++){
+      printf("\n");
+      for(j = 0;j < c; j++)
+           printf("%d\t", b[i][j]);
+  }
+ 
+  m1= (a[0][0] + a[1][1]) * (b[0][0] + b[1][1]);
+  m2= (a[1][0] + a[1][1]) * b[0][0];
+  m3= a[0][0] * (b[0][1] - b[1][1]);
+  m4= a[1][1] * (b[1][0] - b[0][0]);
+  m5= (a[0][0] + a[0][1]) * b[1][1];
+  m6= (a[1][0] - a[0][0]) * (b[0][0]+b[0][1]);
+  m7= (a[0][1] - a[1][1]) * (b[1][0]+b[1][1]);
+ 
+  x[0][0] = m1 + m4- m5 + m7;
+  x[0][1] = m3 + m5;
+  x[1][0] = m2 + m4;
+  x[1][1] = m1 - m2 + m3 + m6;
+ 
+   printf("\nAfter multiplication using Strassen's algorithm \n");
+   for(i = 0; i < r; i++){
+      printf("\n");
+      for(j = 0;j < c; j++)
+           printf("%d\t", x[i][j]);
+   }
+ 
+   return 0;
+}
