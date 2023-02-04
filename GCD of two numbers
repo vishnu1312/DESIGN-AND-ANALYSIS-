@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int a,b,i,gcd;
+	cout<<"enter a & b:";
+	cin>>a>>b;
+	for(i=1;i<=a&&i<=b;i++)//if any number whuich is less than a and b ,and divide both a,b with remainder 0 then it is gcd of both numbers
+	{
+		if(a%i==0 && b%i == 0)
+		gcd = i;
+	}
+	cout<<gcd;
+}
